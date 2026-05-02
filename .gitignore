@@ -1,0 +1,57 @@
+# Enviroment variables
+.env
+.env.*
+!.env.example
+
+# Python virtual enviroments
+.venv/
+venv/
+env/
+ENV/
+
+# Python cache
+__pycsche__/
+*.py[cod]
+*$py.class
+
+# Python build artifacts
+build/
+dist/
+*.egg-info/
+.eggs/
+*.egg
+
+# Pytest / coverage
+/pytest_cache/
+.coverage
+coverage.xml
+htmlcov/
+
+# Type checkers / linters
+.mypy_cache/
+.ruff_cache/
+.pyre/
+.pytype/
+
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE / editors
+.vscode/
+.idea/
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+logs/
+
+# API/debug outputs
+completion.json
+responses.json
+*.responses.json
+
+# Anthropic/OpenAI/Tavily local artifacts
+.cache/
