@@ -1,0 +1,131 @@
+{
+  "total": 5,
+  "passed": 5,
+  "failed": 0,
+  "results": [
+    {
+      "name": "calculator_basic",
+      "path": "tests\\scenarios\\01_calculator.json",
+      "passed": true,
+      "latency_seconds": 4.321,
+      "errors": [],
+      "response": {
+        "answer": "Результат: 1315.",
+        "used_tools": [
+          {
+            "name": "calculator",
+            "input": {
+              "expression": "25 + 1290"
+            }
+          }
+        ],
+        "sources": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "file_reader_basic",
+      "path": "tests\\scenarios\\02_file_reader.json",
+      "passed": true,
+      "latency_seconds": 2.921,
+      "errors": [],
+      "response": {
+        "answer": "Файл sample.txt содержит краткое описание: LangGraph используется для создания состоятельных рабочих процессов агентов (stateful agent workflows) с применением инструментов и условной маршрутизации.",
+        "used_tools": [
+          {
+            "name": "file_reader",
+            "input": {
+              "path": "sample.txt"
+            }
+          }
+        ],
+        "sources": [
+          {
+            "title": "sample.txt",
+            "url": null,
+            "path": "sample.txt"
+          }
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "rag_stub_basic",
+      "path": "tests\\scenarios\\03_rag_stub.json",
+      "passed": true,
+      "latency_seconds": 3.581,
+      "errors": [],
+      "response": {
+        "answer": "К сожалению, я не могу выполнить поиск во внутренней базе знаний, так как текущая реализация инструмента для этого (RAG) требует указания конкретного запроса, а также в данный момент работает в режиме заглушки и не имеет доступа к реальным данным.\n\nЕсли у вас есть доступ к документации или вы знаете конкретные правила, я могу помочь их проанализировать, если вы предоставите текст.",
+        "used_tools": [
+          {
+            "name": "rag_retrieve_stub",
+            "input": {}
+          }
+        ],
+        "sources": [],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "web_search_basic",
+      "path": "tests\\scenarios\\04_web_search.json",
+      "passed": true,
+      "latency_seconds": 8.889,
+      "errors": [],
+      "response": {
+        "answer": "Вот свежая информация о работе с **Server-Sent Events (SSE)** в **FastAPI**, найденная в интернете:\n\n1.  **Библиотека `fastapi-sse`**:\n    *   Существует отдельная библиотека `fastapi-sse` (доступна в PyPI), которая упрощает отправку данных через SSE. Она позволяет отправлять объекты **Pydantic** прямо в поток событий, что делает код чище и безопаснее.\n    *   Ссылка: [pypi.org/project/fastapi-sse/](https://pypi.org/project/fastapi-sse/)\n\n2.  **Демонстрационные проекты**:\n    *   На GitHub есть репозиторий `fastapi-sse` (автор AndreyKlychnikov), который предоставляет минималистичный пример реализации SSE с простым фронтендом для отображения обновлений в реальном времени.\n    *   Ссылка: [github.com/AndreyKlychnikov/fastapi-sse](https://github.com/AndreyKlychnikov/fastapi-sse)\n\n3.  **Интеграция с Nginx и Cloudflare**:\n    *   Появились статьи, описывающие настройку SSE в FastAPI с использованием **Nginx** в качестве прокси и обеспечение совместимости с **Cloudflare**. Это важно для продакшена, так как прокси-серверы и CDN могут по-разному обрабатывать длинные HTTP-соединения, необходимые для SSE.\n    *   Ссылка: [blog.devops.dev/implementing-server-sent-events-with-fastapi-nginx-and-cloudflare](https://blog.devops.dev/implementing-server-sent-events-with-fastapi-nginx-and-cloudflare-10ede1dffc18)\n\n4.  **Альтернатива WebSockets**:\n    *   В обучающих материалах (в том числе на YouTube) подчеркивается, что SSE — это эффективная альтернатива WebSockets для сценариев, где серверу нужно отправлять данные клиенту, но не требуется двусторонняя связь. Это упрощает архитектуру для задач вроде логирования в реальном времени или уведомлений.\n\n**Краткий итог:**\nДля реализации SSE во FastAPI можно использовать стандартные средства (например, `StreamingResponse`), но для удобства работы с Pydantic моделями рекомендуется библиотека `fastapi-sse`. При развертывании в продакшене важно правильно настроить прокси (Nginx) и CDN (Cloudflare), чтобы они не прерывали соединение.",
+        "used_tools": [
+          {
+            "name": "web_search",
+            "input": {
+              "query": "FastAPI SSE Server-Sent Events latest updates 2024 2025",
+              "max_results": 5
+            }
+          }
+        ],
+        "sources": [
+          {
+            "title": "Server-Sent Events (SSE) Demo with FastAPI",
+            "url": "https://github.com/AndreyKlychnikov/fastapi-sse",
+            "path": null
+          },
+          {
+            "title": "Server-Sent Events (SSE) in FastAPI—Starting In-App ...",
+            "url": "https://www.youtube.com/watch?v=tOyUQuZ6bhg",
+            "path": null
+          },
+          {
+            "title": "fastapi-sse",
+            "url": "https://pypi.org/project/fastapi-sse/",
+            "path": null
+          },
+          {
+            "title": "Implementing Server-Sent Events (SSE) with FastAPI",
+            "url": "https://venkateeshh.medium.com/implementing-server-sent-events-sse-with-fastapi-real-time-updates-made-simple-98ddc94d1cf7",
+            "path": null
+          },
+          {
+            "title": "Implementing Server-Sent Events with FastAPI, Nginx, and ...",
+            "url": "https://blog.devops.dev/implementing-server-sent-events-with-fastapi-nginx-and-cloudflare-10ede1dffc18",
+            "path": null
+          }
+        ],
+        "confidence": "medium"
+      }
+    },
+    {
+      "name": "no_tool_simple_chat",
+      "path": "tests\\scenarios\\05_no_tool.json",
+      "passed": true,
+      "latency_seconds": 3.931,
+      "errors": [],
+      "response": {
+        "answer": "Простыми словами, **AI-агент (искусственный агент)** — это программа, которая не просто отвечает на вопросы, а **действует**, чтобы достичь цели.\n\nПредставьте разницу между обычным чат-ботом и агентом:\n\n*   **Обычный чат-бот** — как библиотекарь. Вы спрашиваете: «Где находится книга по квантовой физике?», и он говорит: «На полке 5, ряд 3». Он дает информацию, но не делает ничего сам.\n*   **AI-агент** — как личный помощник. Вы говорите: «Купи мне книгу по квантовой физике и отправь её на мой адрес». Агент сам:\n    1.  **Понимает задачу** (найти книгу).\n    2.  **Планирует шаги** (найти магазин, проверить цену, оформить заказ).\n    3.  **Действует** (использует инструменты: браузер, почту, банковское приложение).\n    4.  **Проверяет результат** (успешно ли заказ оформлен?).\n\n**Ключевые особенности AI-агента:**\n1.  **Автономность:** Он может работать сам, без постоянного вмешательства человека.\n2.  **Инструменты:** Он умеет пользоваться внешними программами (искать в интернете, писать код, отправлять письма, управлять умным домом).\n3.  **Целеполагание:** У него есть конкретная цель, и он сам решает, какие шаги нужны для её достижения.\n\n**Примеры:**\n*   Агент, который сам мониторит новости о вашей компании и пишет отчет, если что-то идет не так.\n*   Агент, который планирует ваш отпуск: ищет билеты, бронирует отели, строит маршрут и отправляет вам готовый план.\n*   Агент-программист, который не просто пишет код по инструкции, а сам находит ошибки, тестирует и исправляет их.\n\nКороче говоря, AI-агент — это «цифровой сотрудник», который может **думать, планировать и делать** работу за вас.",
+        "used_tools": [],
+        "sources": [],
+        "confidence": "medium"
+      }
+    }
+  ]
+}
