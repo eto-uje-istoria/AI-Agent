@@ -1,0 +1,9 @@
+{
+  "name": "web_search_basic",
+  "message": "Найди в интернете свежую информацию про FastAPI SSE через web_search.",
+  "expected": {
+    "must_use_tool": "web_search",
+    "must_have_sources": true,
+    "max_latency_seconds": 40
+  }
+}

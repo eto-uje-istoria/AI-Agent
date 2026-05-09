@@ -17,7 +17,7 @@ async def rag_retrieve_stub(query: str) -> ToolExecutionResult:
 RAG_RETRIEVE_STUB_SCHEMA: dict[str, Any] = {
     "type": "function",
     "function": {
-        "name": "rag_retrive_stub",
+        "name": "rag_retrieve_stub",
         "description": "Temporary stub for future RAG retrieval. Use it when the user asks to search internal knowledge base or corporate documentation.",
         "parametrs": {
             "type": "object",

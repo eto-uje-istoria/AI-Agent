@@ -13,17 +13,19 @@ def _resolve_safe_path(path: str) -> Path:
     if not target_path.is_relative_to(data_dir):
         raise ValueError("Access outside DATA_DIR is not allowed.")
     
-    return target_path
+    relative_path = target_path.relative_to(data_dir).as_posix()
+    
+    return target_path, relative_path
 
 
 async def file_reader(path: str) -> ToolExecutionResult:
     try: 
-        target_path = _resolve_safe_path(path)
+        target_path, relative_path = _resolve_safe_path(path)
 
         if not target_path.exists():
             return ToolExecutionResult(
                 content={
-                    "path": path,
+                    "path": relative_path,
                     "error": "File does not exist.",
                 }
             )
@@ -31,7 +33,7 @@ async def file_reader(path: str) -> ToolExecutionResult:
         if not target_path.is_file():
             return ToolExecutionResult(
                 content={
-                    "path": path,
+                    "path": relative_path,
                     "error": "Path is not a file.",
                 }
             )
@@ -40,13 +42,13 @@ async def file_reader(path: str) -> ToolExecutionResult:
 
         return ToolExecutionResult(
             content={
-                "path": path,
+                "path": relative_path,
                 "text": text,
             },
-            source=[
+            sources=[
                 Source(
                     title=target_path.name,
-                    path=str(target_path),
+                    path=str(relative_path),
                 )
             ],
         )

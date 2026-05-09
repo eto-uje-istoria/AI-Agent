@@ -1,0 +1,9 @@
+{
+  "name": "rag_stub_basic",
+  "message": "Найди во внутренней базе знаний правила возврата товара через RAG.",
+  "expected": {
+    "must_use_tool": "rag_retrieve_stub",
+    "answer_contains_any": ["RAG", "SCRUM-23", "не реализ", "заглуш"],
+    "max_latency_seconds": 20
+  }
+}

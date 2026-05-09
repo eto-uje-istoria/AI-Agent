@@ -1,0 +1,9 @@
+{
+  "name": "calculator_basic",
+  "message": "Посчитай 25 + 1290",
+  "expected": {
+    "must_use_tool": "calculator",
+    "answer_contains_any": ["1315"],
+    "max_latency_seconds": 20
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "file_reader_basic",
+  "message": "Прочитай файл sample.txt и кратко перескажи его.",
+  "expected": {
+    "must_use_tool": "file_reader",
+    "answer_contains_any": ["LangGraph", "agent", "workflow", "граф"],
+    "max_latency_seconds": 20
+  }
+}

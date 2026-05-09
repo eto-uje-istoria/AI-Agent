@@ -1,7 +1,7 @@
 import asyncio
 from typing import Any
 
-from tavily import TavilyClient
+from tavily import TavilyClient # type: ignore[import-untyped]
 
 from app.config import settings
 from app.schemas import Source
@@ -52,7 +52,7 @@ async def web_search(query: str, max_results: int = 5) -> ToolExecutionResult:
                 "query": query,
                 "results": simplified_results,
             },
-            source=sources
+            sources=sources
         )
 
     except Exception as exc:
